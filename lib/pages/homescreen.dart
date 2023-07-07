@@ -46,6 +46,8 @@ class _HomeSreenState extends State<HomeSreen> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        Get.snackbar("Routing", "Going to Profile Page",
+                            colorText: white);
                         Get.to(() => const ProfileScreen());
                       },
                       child: CircleAvatar(
@@ -57,7 +59,11 @@ class _HomeSreenState extends State<HomeSreen> {
                   ],
                 ),
               ),
-              Search(controller: search),
+              GestureDetector(
+                  onTap: () {
+                    Get.snackbar("Search Bar", "To search in app");
+                  },
+                  child: Search(controller: search)),
               Padding(
                 padding: EdgeInsets.only(
                     top: 50.h, bottom: 10.h, left: 20.h, right: 20.h),
@@ -82,8 +88,15 @@ class _HomeSreenState extends State<HomeSreen> {
                       controller: pageController,
                       itemCount: inspirationList.length,
                       itemBuilder: (context, index) {
-                        return PageCard(
-                            inspirationModel: inspirationList[index]);
+                        return GestureDetector(
+                          onTap: () {
+                            Get.snackbar(
+                                "Top Performances", "Page view of the details",
+                                colorText: white);
+                          },
+                          child: PageCard(
+                              inspirationModel: inspirationList[index]),
+                        );
                       }),
                 ),
               ),
@@ -107,8 +120,14 @@ class _HomeSreenState extends State<HomeSreen> {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return CompetitionsWidget(
-                        competionModel: competionlist[index]);
+                    return GestureDetector(
+                      onTap: () {
+                        Get.snackbar("Competitions", "List of competitions",
+                            colorText: white);
+                      },
+                      child: CompetitionsWidget(
+                          competionModel: competionlist[index]),
+                    );
                   })
             ],
           ),

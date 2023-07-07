@@ -82,17 +82,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   children: [
                     ProfileIcon(
-                        ontap: () {},
+                        ontap: () {
+                          Get.snackbar("Notifications", "Notification screen",
+                              colorText: white);
+                        },
                         iconname: "Notifications",
                         icon: "notification"),
                     ProfileIcon(
                         ontap: () {
+                          Get.snackbar("Routing", "Going to leaderboard screen",
+                              colorText: white);
                           Get.to(() => const LeaderboardScreen());
                         },
                         iconname: "Leaderboard",
                         icon: "leaderboard"),
                     ProfileIcon(
-                        ontap: () {}, iconname: "Settings", icon: "setting")
+                        ontap: () {
+                          Get.snackbar("Settings", "Setting screen",
+                              colorText: white);
+                        },
+                        iconname: "Settings",
+                        icon: "setting")
                   ],
                 ),
                 HeightSpacer(height: 30.h),
@@ -102,22 +112,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       color: primary),
                   child: Padding(
                     padding: EdgeInsets.all(20.h),
-                    child: const Column(
-                      children: [
-                        ProfileScreenRow(
-                            iconname: "home", name: "Contribution"),
-                        Divider(
-                          color: white,
-                          thickness: 1,
-                        ),
-                        ProfileScreenRow(
-                            iconname: "wallet", name: "View Plans"),
-                        Divider(
-                          color: white,
-                          thickness: 1,
-                        ),
-                        ProfileScreenRow(iconname: "share", name: "Share")
-                      ],
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.snackbar("Routes", "Routes to ther screen",
+                            colorText: white);
+                      },
+                      child: const Column(
+                        children: [
+                          ProfileScreenRow(
+                              iconname: "home", name: "Contribution"),
+                          Divider(
+                            color: white,
+                            thickness: 1,
+                          ),
+                          ProfileScreenRow(
+                              iconname: "wallet", name: "View Plans"),
+                          Divider(
+                            color: white,
+                            thickness: 1,
+                          ),
+                          ProfileScreenRow(iconname: "share", name: "Share")
+                        ],
+                      ),
                     ),
                   ),
                 ),
