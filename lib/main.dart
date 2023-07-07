@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return const GetMaterialApp(
-            title: 'Wethery',
+            title: 'School App',
             debugShowCheckedModeBanner: false,
             home: HomeSreen(),
           );
